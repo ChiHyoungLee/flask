@@ -1,0 +1,357 @@
+<!doctype html>
+<html lang="ko">
+ <head>
+  <meta charset="UTF-8">
+  <meta name="Generator" content="EditPlus®">
+  <meta name="Author" content="">
+  <meta name="Keywords" content="">
+  <meta name="Description" content="">
+  <link href="{{url_for('static', filename = 'result.css')}}" rel="stylesheet" type="text/css"/>
+  <title>영화정보</title>
+ </head>
+ <body>
+  <div class="wrap">
+   <div class="movie_search">
+      <div>
+         <a href="#"></a>
+      </div>
+      <div class="search_box">
+        <form method='POST' action='/result'>
+          <input type="text" id="text_str" name="title"/>
+          <input type="submit" class="btn_search" value="검색"/>
+        </form>
+      </div>
+   </div>
+
+   <section>
+
+      <article class="information margin_wrap">
+         <div class="movie_image">
+           <img src="{{image}}" alt=""/>
+         </div>
+
+         <div class="movie_information">
+            <div class="information_text">
+               <div><span>{{title}}</span></div>
+               <div><span>개봉일 : {{rel_date}}</span></div>
+               <div><span>장르 : {{genre}}</span></div>
+               <div><span>배우 : {{actor}}</span></div>
+               <div><span>줄거리 : {{summary}}</span></div>
+            </div>
+         </div>
+      </article>
+
+      <article class="review margin_wrap">
+         <div class="movie_review">
+            <span class="review_text">
+              <h2>리뷰</h2>
+              {% for i in re%}
+              <p>{{ i }}</p>
+              {% endfor %}
+            </span>
+         </div>
+      </article>
+
+      <article class="ranking margin_wrap">
+        <div class="rank_this">
+           <h2>이 영화의 순위 : {{year}}년도 {{title}}의 순위는 {{rank1}}위 입니다. </h2>
+        </div>
+
+        <table class="rank_year">
+           <thead>
+              <tr>
+                 <th colspan="2">연도별 순위</th>
+              </tr>
+           </thead>
+
+
+             <tbody>
+             {% for i in range(0, 10) %}
+              <tr>
+                 <td>{{i+1}}</td><td><form method="POST" action="/result">
+                   <input type="submit" value="{{yearlist[i]}}" class="mit_css" name="title"  style="height: 75px;width: 200px;"/>
+                 </form></td>
+              </tr>
+             {% endfor %}
+              </tbody>
+        </table>
+
+         <table class="2">
+
+            <thead>
+               <tr>
+                  <th colspan="2">{{genrelist[0]}} 순위</th>
+               </tr>
+            </thead>
+
+            <tbody>
+              {% for i in range(0, 10) %}
+               <tr>
+                  <td>{{i+1}}</td><td><form method="POST" action="/result">
+                       <input type="submit" value="{{rank[0][i]}}" class="mit_css" name="title"  style="height: 75px;width: 200px;"/>
+                  </form></td>
+               </tr>
+              {% endfor %}
+               </tbody>
+         </table>
+
+         <table class="3">
+            <thead>
+               <tr>
+                  <th colspan="2">{{genrelist[1]}} 순위</th>
+               </tr>
+            </thead>
+
+            <tbody>
+              {% for i in range(0, 10) %}
+               <tr>
+                  <td>{{i+1}}</td><td><form method="POST" action="/result">
+                    <input type="submit" value="{{rank[1][i]}}" class="mit_css" name="title"  style="height: 75px;width: 200px;"/>
+                  </form></td>
+               </tr>
+              {% endfor %}
+               </tbody>
+         </table>
+
+         <table class="4">
+            <thead>
+               <tr>
+                  <th colspan="2">{{genrelist[2]}} 순위</th>
+               </tr>
+            </thead>
+
+            <tbody>
+              {% for i in range(0, 10) %}
+               <tr>
+                  <td>{{i+1}}</td><td><form method="POST" action="/result">
+                    <input type="submit" value="{{rank[2][i]}}" class="mit_css" name="title"  style="height: 75px;width: 200px;"/>
+                  </form></td>
+               </tr>
+              {% endfor %}
+               </tbody>
+         </table>
+
+         <table class="5">
+            <thead>
+               <tr>
+                  <th colspan="2">{{genrelist[3]}} 순위</th>
+               </tr>
+            </thead>
+
+            <tbody>
+              {% for i in range(0, 10) %}
+               <tr>
+                  <td>{{i+1}}</td><td><form method="POST" action="/result">
+                    <input type="submit" value="{{rank[3][i]}}" class="mit_css" name="title"  style="height: 75px;width: 200px;"/>
+                  </form></td>
+               </tr>
+              {% endfor %}
+               </tbody>
+         </table>
+
+         <table class="6">
+            <thead>
+               <tr>
+                  <th colspan="2">{{genrelist[4]}} 순위</th>
+               </tr>
+            </thead>
+
+            <tbody>
+              {% for i in range(0, 10) %}
+               <tr>
+                  <td>{{i+1}}</td><td><form method="POST" action="/result">
+                    <input type="submit" value="{{rank[4][i]}}" class="mit_css" name="title"  style="height: 75px;width: 200px;"/>
+                  </form></td>
+               </tr>
+              {% endfor %}
+               </tbody>
+         </table>
+
+         <table class="7">
+            <thead>
+               <tr>
+                  <th colspan="2">{{genrelist[5]}} 순위</th>
+               </tr>
+            </thead>
+
+            <tbody>
+              {% for i in range(0, 10) %}
+               <tr>
+                  <td>{{i+1}}</td><td><form method="POST" action="/result">
+                    <input type="submit" value="{{rank[5][i]}}" class="mit_css" name="title"  style="height: 75px;width: 200px;"/>
+                  </form></td>
+               </tr>
+              {% endfor %}
+               </tbody>
+         </table>
+
+         <table class="8">
+            <thead>
+               <tr>
+                  <th colspan="2">{{genrelist[6]}} 순위</th>
+               </tr>
+            </thead>
+
+            <tbody>
+              {% for i in range(0, 10) %}
+               <tr>
+                  <td>{{i+1}}</td><td><form method="POST" action="/result">
+                    <input type="submit" value="{{rank[6][i]}}" class="mit_css" name="title"  style="height: 75px;width: 200px;"/>
+                  </form></td>
+               </tr>
+              {% endfor %}
+               </tbody>
+         </table>
+
+         <table class="9">
+            <thead>
+               <tr>
+                  <th colspan="2">{{genrelist[7]}} 순위</th>
+               </tr>
+            </thead>
+
+            <tbody>
+              {% for i in range(0, 10) %}
+               <tr>
+                  <td>{{i+1}}</td><td><form method="POST" action="/result">
+                    <input type="submit" value="{{rank[7][i]}}" class="mit_css" name="title"  style="height: 75px;width: 200px;"/>
+                  </form></td>
+               </tr>
+              {% endfor %}
+               </tbody>
+         </table>
+
+         <table class="10">
+            <thead>
+               <tr>
+                  <th colspan="2">{{genrelist[8]}} 순위</th>
+               </tr>
+            </thead>
+
+            <tbody>
+              {% for i in range(0, 10) %}
+               <tr>
+                  <td>{{i+1}}</td><td><form method="POST" action="/result">
+                    <input type="submit" value="{{rank[8][i]}}" class="mit_css" name="title"  style="height: 75px;width: 200px;"/>
+                  </form></td>
+               </tr>
+              {% endfor %}
+               </tbody>
+         </table>
+
+         <table class="11">
+            <thead>
+               <tr>
+                  <th colspan="2">{{genrelist[9]}} 순위</th>
+               </tr>
+            </thead>
+
+            <tbody>
+              {% for i in range(0, 10) %}
+               <tr>
+                  <td>{{i+1}}</td><td><form method="POST" action="/result">
+                    <input type="submit" value="{{rank[9][i]}}" class="mit_css" name="title"  style="height: 75px;width: 200px;"/>
+                  </form></td>
+               </tr>
+              {% endfor %}
+               </tbody>
+         </table>
+
+         <table class="12">
+            <thead>
+               <tr>
+                  <th colspan="2">{{genrelist[10]}} 순위</th>
+               </tr>
+            </thead>
+
+            <tbody>
+              {% for i in range(0, 10) %}
+               <tr>
+                  <td>{{i+1}}</td><td><form method="POST" action="/result">
+                    <input type="submit" value="{{rank[10][i]}}" class="mit_css" name="title"  style="height: 75px;width: 200px;"/>
+                  </form></td>
+               </tr>
+              {% endfor %}
+               </tbody>
+         </table>
+
+         <table class="13">
+            <thead>
+               <tr>
+                  <th colspan="2">{{genrelist[11]}} 순위</th>
+               </tr>
+            </thead>
+
+            <tbody>
+              {% for i in range(0, 10) %}
+               <tr>
+                  <td>{{i+1}}</td><td><form method="POST" action="/result">
+                    <input type="submit" value="{{rank[11][i]}}" class="mit_css" name="title"  style="height: 75px;width: 200px;"/>
+                  </form></td>
+               </tr>
+              {% endfor %}
+               </tbody>
+         </table>
+
+         <table class="14">
+            <thead>
+               <tr>
+                  <th colspan="2">{{genrelist[12]}} 순위</th>
+               </tr>
+            </thead>
+
+            <tbody>
+              {% for i in range(0, 10) %}
+               <tr>
+                  <td>{{i+1}}</td><td><form method="POST" action="/result">
+                    <input type="submit" value="{{rank[12][i]}}" class="mit_css" name="title"  style="height: 75px;width: 200px;"/>
+                  </form></td>
+               </tr>
+              {% endfor %}
+               </tbody>
+         </table>
+
+         <table class="15">
+            <thead>
+               <tr>
+                  <th colspan="2">{{genrelist[13]}} 순위</th>
+               </tr>
+            </thead>
+
+            <tbody>
+              {% for i in range(0, 10) %}
+               <tr>
+                  <td>{{i+1}}</td><td><form method="POST" action="/result">
+                    <input type="submit" value="{{rank[13][i]}}" class="mit_css" name="title"  style="height: 75px;width: 200px;"/>
+                  </form></td>
+               </tr>
+              {% endfor %}
+               </tbody>
+         </table>
+
+         <table class="16">
+            <thead>
+               <tr>
+                  <th colspan="2">{{genrelist[14]}} 순위</th>
+               </tr>
+            </thead>
+
+            <tbody>
+              {% for i in range(0, 10) %}
+               <tr>
+                  <td>{{i+1}}</td><td><form method="POST" action="/result">
+                    <input type="submit" value="{{rank[14][i]}}" class="mit_css" name="title"  style="height: 75px;width: 200px;"/>
+                  </form></td>
+               </tr>
+              {% endfor %}
+               </tbody>
+         </table>
+      </article>
+
+   </section>
+
+   <footer>
+   </footer>
+  </div>
+ </body>
+</html>
